@@ -1,5 +1,8 @@
 from flask import Flask
+from flaskrun import flaskrun
 from flask import render_template
+
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -11,4 +14,4 @@ def hpstuff():
 	return render_template('hpstuff.html')
 
 if __name__ == "__main__":
-    app.run()
+    flaskrun(app)
