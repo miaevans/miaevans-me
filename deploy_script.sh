@@ -1,3 +1,3 @@
 git add .
 git commit -m "misc"
-ssh ubuntu@ec2-35-163-48-70.us-west-2.compute.amazonaws.com && unsafe_deploy_miaevans.sh && exit
+ssh ubuntu@ec2-35-163-48-70.us-west-2.compute.amazonaws.com && . unsafe_deploy_miaevans.sh && exit
