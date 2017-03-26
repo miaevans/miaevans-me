@@ -1,0 +1,66 @@
+<head>
+<style>
+	.miabutton { 
+    background: gainsboro;
+    width: 30%;
+    margin: 0 auto;
+    border: darkgray 2px solid;
+    border-radius: 10px;
+    padding: 10px;		
+	width: 30%; margin: 0 auto }
+
+	.fantasy {
+		font-family:fantasy;
+	}
+</style>
+</head>
+
+<body>
+
+<h1 style="text-align: center">
+	Knuts Converter
+</h1>
+
+<div class="fantasy">
+Type in any number of knuts: <input type="text" id="knuts_entered" onkeyup="updateVals(this.value)">
+</div>
+
+<div>
+There are <span id="galleons_value">__</span> Galleons, <span id="sickles_value">__</span> Sickles, and 
+<span id="knuts_value">__</span> Knuts.
+</div>
+
+<script type="text/javascript">
+
+function numSicklesPerGalleon() { return 29 }
+function numKnutsPerSickle() { return 17 }
+function numKnutsPerGalleon() { return numSicklesPerGalleon() * numKnutsPerSickle() }
+
+function getGalleons(knuts) {
+	return Math.floor(knuts / numKnutsPerGalleon())
+}
+
+function getSickles(knuts) {
+	var knutsRemainder = knuts - (getGalleons(knuts) * numKnutsPerGalleon())
+	var result = Math.floor(knutsRemainder / numKnutsPerSickle())
+	return result
+}
+
+function getKnuts(knuts) {
+	var result = knuts - (getGalleons(knuts) * numKnutsPerGalleon()) - (getSickles(knuts) * numKnutsPerSickle())
+	return result
+}
+
+window.onload = function() {
+	document.getElementById("galleons_value").innerHTML = "0"
+}
+
+function updateVals(knuts) {
+	document.getElementById("galleons_value").innerHTML = getGalleons(knuts)
+	document.getElementById("sickles_value").innerHTML = getSickles(knuts)
+	document.getElementById("knuts_value").innerHTML = getKnuts(knuts)
+}
+
+</script>
+</span>
+</div>
