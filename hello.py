@@ -14,7 +14,7 @@ def hpstuff():
 	return render_template('hpstuff.html')
 
 @app.route("/hp_knuts_converter")
-def hpstuff():
+def hp_knuts_converter():
 	return render_template('hp_knuts_converter.html')
 
 if __name__ == "__main__":
