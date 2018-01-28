@@ -6,38 +6,35 @@
 				text-align: center; 
 				color: darkolivegreen				
 			}
-			.pic-container {
-				width: 500px; 
+			.big-bad-container {
+				display: grid;
+				position: relative;
+				grid-template-areas:
+	    			'. shelter'
+	    			'fire .';
+
+			}
+			.grid-item {
+				border: 1px solid rgba(0, 0, 0, 0.8);
 				text-align: center;
-				padding: 10px;
-				clear: both;
-				background-color: blue;
-				position:relative;
 			}
-			.shelter {
-				float: right;
+			.grid-item img {
+				width: 80%
 			}
-			#shelter-img {
-				width: 400px;
-				z-index: 1;
-			}
-			.pic-container a {
-				color:lawngreen;
-				font-size: 40;
-				position:absolute;
-				right:230px;
-				top:120px;
+			.grid-item a {
+				position: absolute;
 				z-index: 2;
-			}
-			.fire a {
-				color:saddlebrown;
-				font-size: 40;
-				position:absolute;
-				left:230px;
-				bottom:20px;
-				z-index: 2;
+				font-size: 200%;
+				color: saddlebrown;
 			}
 
+			.shelter {
+				grid-area: shelter;
+
+			}
+			.fire {
+				grid-area: fire
+			}
 		</style>
 	</head>
 
@@ -51,16 +48,21 @@
 
 		</div>	
 
-		<div class="pic-container shelter"> 
-			<img id="shelter-img"src="debrihut.png" />
-			<a href="fire.html">Shelter</a>
-		</div>
-
-		<div class="pic-container fire"> 
-        	<img src="fire.jpeg" />
-        	<a href="fire.html">Fire</a>
-   		</div>
-
+		<div class="big-bad-container">
+			<div class="shelter grid-item"> 
+				<div subject-container">
+					<a style="color: lawngreen" href="shelter.html">Shelter</a>
+					<img src="debrihut.png" />
+				</div>
+			</div>
+				<div class="fire grid-item"> 
+					<div subject-container">
+			        	<img style="width:50%" src="fire.jpeg" />
+			        	<a href="fire.html">Fire</a>
+			        </div>
+		   		</div>
+		   	</div>
+	   	</div>
 
 
 		<!--
