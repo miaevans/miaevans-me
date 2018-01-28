@@ -4,8 +4,8 @@
 	</head>
 
 	<body>
-		<h1>
-			Hello, my name is Mia Evans and this is my website. 
+		<h1 style="text-align: center;">
+			ME
 		</h1>
 
 		<div>
@@ -13,5 +13,58 @@
 
 		</div>	
 	</body>
+
+</html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+ <body>
+    <p align="center"> 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+ <script type="application/processing" data-processing-target="pjs">
+
+ /* @pjs preload="https://vignette.wikia.nocookie.net/vsbattles/images/a/ac/Tree.png/revision/latest?cb=20170515233039"; */
+
+ // void setup() {
+	// size(200, 200);
+	// // background(100);
+	// // stroke(255);
+	// // ellipse(50, 50, 25, 25);
+	// // println('hello web!');
+
+	// img = loadImage("https://vignette.wikia.nocookie.net/vsbattles/images/a/ac/Tree.png/revision/latest?cb=20170515233039");
+ // }
+
+ var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        // ProgramCodeGoesHere
+        fill(55, 55, 30);
+        rect(300,100,100,200);
+        image(img);
+        
+        noFill();
+        stroke(0, 0, 0);
+        strokeWeight(2);
+        arc(200, 200, 150, 100, 0, PI);
+        fill(0, 0, 0);
+        ellipse(250, 200, 10, 10);
+        ellipse(153, 200, 10, 10);
+    }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc);
+    var img = loadImage("https://vignette.wikia.nocookie.net/vsbattles/images/a/ac/Tree.png/revision/latest?cb=20170515233039");
+ 
+ </script>
+
+
 
 </html>

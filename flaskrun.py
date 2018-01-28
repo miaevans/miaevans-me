@@ -41,6 +41,10 @@ def flaskrun(app, default_host="127.0.0.1",
                        restrictions=[30])
         options.debug = True
 
+
+    options.debug = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+
     app.run(
         debug=options.debug,
         host=options.host,

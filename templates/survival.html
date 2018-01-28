@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>Mia Evans' Web Site</title>
+		<style>
+			h1 {
+				text-align: center; 
+				color: darkolivegreen				
+			}
+			.pic-container {
+				width: 500px; 
+				text-align: center;
+				padding: 10px;
+				clear: both;
+				background-color: blue;
+				position:relative;
+			}
+			.shelter {
+				float: right;
+			}
+			#shelter-img {
+				width: 400px;
+				z-index: 1;
+			}
+			.pic-container a {
+				color:lawngreen;
+				font-size: 40;
+				position:absolute;
+				right:230px;
+				top:120px;
+				z-index: 2;
+			}
+			.fire a {
+				color:saddlebrown;
+				font-size: 40;
+				position:absolute;
+				left:230px;
+				bottom:20px;
+				z-index: 2;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<h1>
+			SURVIVAL
+		</h1>
+
+		<div>
+			<a href="hello2.html">Main Menu</a>
+
+		</div>	
+
+		<div class="pic-container shelter"> 
+			<img id="shelter-img"src="debrihut.png" />
+			<a href="fire.html">Shelter</a>
+		</div>
+
+		<div class="pic-container fire"> 
+        	<img src="fire.jpeg" />
+        	<a href="fire.html">Fire</a>
+   		</div>
+
+
+
+		<!--
+		<div class="pic-container shelter">
+                <img src="debrihut.png" style="width: 500px; "/>
+
+                 <a href="fire.html" style="font-size: 30px; top: 100px; left: 50%; transform: translate(-50%, -50%); position: absolute; color: lawngreen; ">Shelter</a>
+        </div>  
+
+		<div class="pic-container">
+                <img src="fire.jpeg" style="position: absolute; width: 100px; height=100px; margin-top:200px"/>
+                
+                <a href="fire.html" style="font-size: 30px; top: 50px; left: 50%; left: 220px; position: absolute; color: saddlebrown; margin-top:200px">Fire</a>
+        </div>  
+		-->
+
+	</body>
+
+</html>
