@@ -12,10 +12,9 @@
 				grid-template-areas:
 	    			'. shelter'
 	    			'fire .';
-
 			}
 			.grid-item {
-				border: 1px solid rgba(0, 0, 0, 0.8);
+				/*border: 1px solid rgba(0, 0, 0, 0.8);*/
 				text-align: center;
 			}
 			.grid-item img {
@@ -35,6 +34,23 @@
 			.fire {
 				grid-area: fire
 			}
+			.subject-container {
+				position: relative;
+			}
+			#sheltertext {
+				position: absolute;
+				color: lawngreen;
+				left: 40%;
+				top: 45%;
+			}
+			#firetext {
+				position: absolute;
+				left: 45%;
+				top: 50%;
+			}
+			#fireimg {
+				width: 50%;
+			}
 		</style>
 	</head>
 
@@ -50,35 +66,18 @@
 
 		<div class="big-bad-container">
 			<div class="shelter grid-item"> 
-				<div subject-container">
-					<a style="color: lawngreen" href="shelter.html">Shelter</a>
+				<div class="subject-container">
+					<a id="sheltertext" href="shelter.html">Shelter</a>
 					<img src="debrihut.png" />
 				</div>
 			</div>
 				<div class="fire grid-item"> 
-					<div subject-container">
-			        	<img style="width:50%" src="fire.jpeg" />
-			        	<a href="fire.html">Fire</a>
+					<div class="subject-container">
+			        	<img id="fireimg" src="fire.jpeg" />
+			        	<a id="firetext" href="fire.html">Fire</a>
 			        </div>
 		   		</div>
 		   	</div>
 	   	</div>
-
-
-		<!--
-		<div class="pic-container shelter">
-                <img src="debrihut.png" style="width: 500px; "/>
-
-                 <a href="fire.html" style="font-size: 30px; top: 100px; left: 50%; transform: translate(-50%, -50%); position: absolute; color: lawngreen; ">Shelter</a>
-        </div>  
-
-		<div class="pic-container">
-                <img src="fire.jpeg" style="position: absolute; width: 100px; height=100px; margin-top:200px"/>
-                
-                <a href="fire.html" style="font-size: 30px; top: 50px; left: 50%; left: 220px; position: absolute; color: saddlebrown; margin-top:200px">Fire</a>
-        </div>  
-		-->
-
 	</body>
-
 </html>
