@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mia Evans' Web Site</title>
+		<style>
+			#title{
+				color: yellowgreen;
+				text-align: center;
+				font-family: fantasy;
+			}
+			#link_container {
+				display: grid;
+				grid-template-columns: fit-content(500px) 500px;
+			}
+			#debris_hut{
+				color: yellowgreen;
+				font-size: 30px;
+				height: 1em;
+			}
+			#pic{
+				visibility: hidden;
+				width:500px;
+			}	
+			</style>
+	</head>
+	<body>
+		<h1 id="title">Shelter</h1>
+
+		<div>
+			<a href="survival.html">back</a>
+
+		</div>
+		<div id="link_container">
+			<a id="debris_hut" href="debris_hut.html">Debris Hut</a>
+
+			<img id = "pic" src = "https://survivallife.com/wp-content/uploads/2017/05/survival-shelters-ft-image.jpg" alt = "picture of debris hut">
+		</div>
+
+
+
+		<script>
+			var picture = document.getElementById("pic");
+			var linky = document.getElementById("debris_hut");
+
+			var pop = function() {
+				picture.style.visibility = "visible";
+			};
+
+			var popnot = function() {
+				picture.style.visibility = "hidden";
+			}
+
+			linky.addEventListener("mouseenter", pop);
+			linky.addEventListener("mouseleave", popnot);
+		</script>
+	</body>
+</html>

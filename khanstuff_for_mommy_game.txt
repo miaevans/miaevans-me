@@ -1,0 +1,42 @@
+var scene = function(fire){
+    background(188, 233, 235);
+    fill(220, 222, 202);
+    rect(0, 360, 150, 40);//left ground
+    rect(250, 360, 150, 40);//right ground
+    rect(90, 250, 45, 110);
+    fill(238, 0, 255);
+    ellipse(113, 270, 15, 15);
+    fill(130, 92, 4);
+    rect(130, 160, 20, 200);
+    fill(225, 228, 242);
+    rect(300, 40, 100, 320);//building
+    fill(155, 225, 245);
+    rect(320, 60, 80, 30);//windowTop
+    rect(320, 130, 80, 30);//windowMiddle
+    rect(320, 200, 80, 30);//windowBottom
+    fill(0, 77, 255);
+    rect(360, 270, 50, 90);//door
+    
+    if(fire === "true"){
+        image(getImage("cute/None"),10,10);
+    }
+};
+
+var robot = function(){
+    fill(255, 0, 0);
+    rect(10, 200, 50, 40); // head
+    rect(28, 240, 15, 10); //neck
+    fill(237, 216, 216);
+    rect(5, 250, 60,  80); // body
+    rect(15, 225, 40, 10);
+    fill(0, 0, 0);
+    rect(15, 210, 15, 10); //right eye
+    rect(40, 210, 15, 10); //left eye
+    rect(0, 260, 20, 60); // right arm
+    rect(55, 260, 20, 60); // left arm
+    rect(10, 330, 20, 30); // right leg
+    rect(40, 330, 20, 30); // right leg
+};
+
+scene();
+robot();

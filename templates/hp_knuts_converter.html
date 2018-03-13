@@ -7,27 +7,44 @@
     border: darkgray 2px solid;
     border-radius: 10px;
     padding: 10px;		
-	width: 30%; margin: 0 auto }
-
+	width: 30%; margin: 0 auto 
+	}
 	.fantasy {
 		font-family:fantasy;
+		text-align: center; 
+	}
+	#screen {
+		background-color:lawngreen;
+		height:500px;
+	}
+	#reply {
+		text-align: center;
+		margin-top: 300px;
 	}
 </style>
 </head>
 
 <body>
 
-<h1 style="text-align: center">
-	Knuts Converter
-</h1>
+<div id="screen">
+	<h1 style="text-align: center">
+		Knuts Converter
+	</h1>
 
-<div class="fantasy">
-Type in any number of knuts: <input type="text" id="knuts_entered" onkeyup="updateVals(this.value)">
-</div>
+	<div>
+		<a href="hpstuff.html">Back</a>
 
-<div>
-There are <span id="galleons_value">__</span> Galleons, <span id="sickles_value">__</span> Sickles, and 
-<span id="knuts_value">__</span> Knuts.
+	</div>
+
+	<div class="fantasy">
+	Type in any number of knuts: <input type="text" id="knuts_entered" onkeyup="updateVals(this.value)">
+	</div>
+
+	<div id="reply">
+	You have <span id="galleons_value">__</span> Galleons, <span id="sickles_value">__</span> Sickles, and 
+	<span id="knuts_value">__</span> Knuts.
+	</div>
+
 </div>
 
 <script type="text/javascript">
@@ -53,6 +70,10 @@ function getKnuts(knuts) {
 
 window.onload = function() {
 	document.getElementById("galleons_value").innerHTML = "0"
+}
+
+function isNumber(value) {
+	return (data === parseInt(data, 10))
 }
 
 function updateVals(knuts) {
