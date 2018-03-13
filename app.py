@@ -8,7 +8,7 @@ app = Flask(__name__, static_url_path='')
 @app.route('/')
 def root():
     return app.send_static_file('index.html')
-
+    
 @app.route("/hello2")
 def hello2():
 	return render_template('hello2.html')
