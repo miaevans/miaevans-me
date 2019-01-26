@@ -13,11 +13,45 @@ https://github.com/Team-Code/KA_Offline -->
                 width: 200px; 
                 text-align: center;
             }
+            #tree{
+                width: 100%; 
+                height=500px; 
+                float:right;
+            }
+            #survival{
+                font-size: 300%; 
+                top: 100px; 
+                left: 50%;  
+                position: absolute; 
+                color: darkgoldenrod;
+            }
+            #hpstuff{
+                font-size: 150%; 
+                top: 300px; 
+                color: orange;"
+            }
+            #birdPic{
+                float:right;
+            }
+            #move{
+                right:5px;
+                top:130px;
+                color: aqua;
+                font-size: 150%
+            }
             #construction{
                 color:coral;
             }
             #construction_imj{
                 float:left;
+            }
+            .wordsOnImage{
+                transform: translate(-50%, -50%); 
+                position: absolute; 
+            }
+            .picAndWords{
+                position:relative;
+                text-align: center;
             }
         </style>
     </head>
@@ -28,15 +62,26 @@ https://github.com/Team-Code/KA_Offline -->
                 ME
             </h1>
             <div style="position: relative; width: 600px; float: right; text-align: center;">
-                <img src="Tree.png" style="width: 100%; height=500px; float:right"/>
-                <a href="survival.html" style="font-size: 300%; top: 100px; left: 50%; transform: translate(-50%, -50%); position: absolute; color: darkgoldenrod;">Survival</a>
+                <img id="tree" src="Tree.png"/>
+                <a class="wordsOnImage" id="survival" href="survival.html">Survival</a>
             </div> 
 
             <div id="togetherness">
                 <img src="http://orig13.deviantart.net/3b0f/f/2011/235/6/b/the_sorting_hat_by_sahinduezguen-d47mwt5.png" alt="Harry Potter sorting hat" width="200px" id="sorting_hat">
                 
-                <a href="hpstuff.html" style="font-size: 150%; top: 300px; transform: translate(-50%, -50%); position: absolute; color: orange;">Harry Potter Related</a>
+                <a class="wordsOnImage" id="hpstuff" href="hpstuff.html">Harry Potter Related</a>
             </div> 
+
+            <div>
+        <h2> 
+        	<a style = "text-decoration:none" href ="morseCode.html"> –– –– &nbsp &nbsp &nbsp &nbsp –– –– –– &nbsp &nbsp &nbsp &nbsp • –– • &nbsp &nbsp &nbsp &nbsp ••• &nbsp &nbsp &nbsp &nbsp • <br> –– • –– • &nbsp &nbsp &nbsp &nbsp –– –– –– &nbsp &nbsp &nbsp &nbsp –– •• &nbsp &nbsp &nbsp &nbsp • </a>
+        	</h2>   
+            </div>  
+
+            <div class="picAndWords">
+                <img id = "birdPic" src="BirdDeadPlastic.jpg" alt="dead bird with plastic in its stomach">
+                <a class="wordsOnImage" id="move" href="GreatPacificGarbagePatch.html">Great Pacific Garbage Patch</a>
+            </div>
 
             <img id = "construction_imj" src="construction.gif" alt="roadblock">
             <p id = "construction"> WEBSITE UNDER CONSTRUCTION </p>

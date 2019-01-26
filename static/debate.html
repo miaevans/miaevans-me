@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style>
+			#title{
+				font-family: fantasy;
+			}
+			#position{
+				font-family: cursive;
+			}
+			#button_table{
+				width:100%;
+				margin-bottom: 20px;
+			}
+			#div_yeah{
+				display:none;
+			}
+			#div_nah{
+				display:none;
+			}
+			.debate_body{
+				border: 1px solid black;
+				width:50%;
+			}
+			.button1{
+				border-radius: 25px;
+				width:50%;
+				padding:30px;
+				font-size: 30px;
+				margin-bottom: 10px;
+			}
+			.new_comments{
+				border: 1px dotted black;
+				padding: 10px;
+			}
+			table{
+				border-collapse: collapse;
+			}
+			textarea{
+				resize:none;
+			}
+		</style>
+	</head>
+
+	<body onload="my_load();">
+		<h1 id="title">DEBATE</h1>
+
+		<div>
+			<a href="plastic.html">Back</a>
+
+		</div>	
+
+		<h2 id="position">Should Plastic Be Banned?</h2>
+
+		<table id='button_table'>
+		  <tr>
+		    <th>
+		    	<button style= "background: #5ff303;" class="button1" type="button" onclick="clickedYeah()">Yes!</button>
+		    	<div id="div_yeah">
+			    	<div>
+				    	<textarea  id="yes_text" rows="4" cols="50">
+
+						</textarea>
+					</div>
+					<button type="button" onclick="clickedYeah2()">Submit</button>
+				</div>
+			</th>
+		    <th>
+		    	<button style="background: #f33314" class="button1" type="button" onclick="clickedNah()">No!</button>
+		    	<div id="div_nah">
+			    	<div>
+				    	<textarea id="no_text" rows="4" cols="50">
+
+						</textarea>
+					</div>
+					<button type="button" onclick="clickedNah2()">Submit</button>
+				</div>
+			</th>
+		  </tr>
+		</table>
+
+		<table>
+		  <tr>
+		    <th class="debate_body">Yes!</th>
+		    <th class="debate_body">No!</th>
+		  </tr>
+		  <tr>
+		    <td id="inside_yeah" class="debate_body"></td>
+		    <td id="inside_nah" class="debate_body"></td>
+		  </tr>
+		</table>
+
+	<script>
+		var data = {}
+
+		function my_load() {
+			var client = new XMLHttpRequest();
+			client.onreadystatechange = function() {
+				// console.log(`read comments returned status ${this.status}`);
+			    if (this.readyState == 4 && this.status == 200) {
+					console.log(`read comments returned ${this.response}`);
+					// Convert the "magic" string we saved into the data
+					// structure that represents all the information we are
+					// saving/restoring
+					data = JSON.parse(this.response)
+					load_comments()
+			    }
+			}
+			client.open("GET", "read", false);
+			response = client.send();
+		}
+
+		function load_comments() {
+			console.log(data);
+
+			var i = 0;
+			var pro_comments = data["pro"]
+			for (i=0; i < pro_comments.length; i++ ){
+				// alert(pro_comments[i])
+    			var inside_yes = document.getElementById("inside_yeah");
+				var new_text = document.createElement("div");
+				new_text.setAttribute('class', 'new_comments')
+				new_text.innerHTML = pro_comments[i];
+				inside_yes.appendChild(new_text);
+			}
+
+			var i = 0;
+			var con_comments = data["con"]
+			for (i=0; i < con_comments.length; i++ ){
+				// alert(pro_comments[i])
+    			var inside_no = document.getElementById("inside_nah");
+				var new_text = document.createElement("div");
+				new_text.setAttribute('class', 'new_comments')
+				new_text.innerHTML = con_comments[i];
+				inside_no.appendChild(new_text);
+			}
+		}
+
+		function clickedYeah() {
+			var divYeah = document.getElementById("div_yeah");
+			divYeah.style.display = "block";
+		}
+		function clickedNah() {
+			var divNah = document.getElementById("div_nah");
+			divNah.style.display = "block";
+		}
+
+		function clickedYeah2() {
+			var divYeah2 = document.getElementById("div_yeah");
+			divYeah2.style.display = "none";
+			var boxEl = document.getElementById("yes_text");
+    		var inside_yes = document.getElementById("inside_yeah");
+			var new_text = document.createElement("div");
+			new_comment_text = boxEl.value;
+			new_text.innerHTML = new_comment_text
+			inside_yes.appendChild(new_text);
+			data["pro"].push(new_comment_text)
+			console.log(data)
+			boxEl.value = "";
+
+			var url = "save";
+			var client = new XMLHttpRequest();
+			client.open("PUT", url, false);
+			client.setRequestHeader("Content-Type", "text/plain");
+			client.send(JSON.stringify(data));
+			//if (client.status == 200)
+			   // alert("The request succeeded!\n\nThe response representation was:\n\n" + client.responseText)
+			//else
+			  //  alert("The request did not succeed!\n\nThe response status was: " + client.status + " " + client.statusText + ".");
+ 
+			}
+		function clickedNah2() {
+			var divNah2 = document.getElementById("div_nah");
+			divNah2.style.display = "none";
+			var input2 = document.getElementById("no_text");
+    		var inside_no = document.getElementById("inside_nah");
+			var new_text2 = document.createElement("div");
+			new_text2.innerHTML = input2.value;
+			new_comment_text = input2.value;
+ 			inside_no.appendChild(new_text2);
+			data["con"].push(new_comment_text)
+			input2.value = "";
+
+			var url = "save";
+			var client = new XMLHttpRequest();
+			client.open("PUT", url, false);
+			client.setRequestHeader("Content-Type", "text/plain");
+			client.send(JSON.stringify(data));
+		}
+
+	</script>
+	</body>
+</html>
+

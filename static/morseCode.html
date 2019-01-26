@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Mia Evans' Web Site</title>
+	</head>
+	<body>
+		<h1 style = "text-align: center"> Morse Code!</h1>
+
+		<h2> Type stuff normally here: </h2>
+		<textarea rows = "3" cols = "50" onkeydown = "clearTextChanged(event)">	
+		</textarea>
+
+		<h2> Morse Code: </h2>
+		<textarea id="morse_area" rows = "3" cols = "50">	
+		</textarea>
+
+		<script>
+			function clearTextChanged(event) {
+				var target = event.target;
+				console.log(target.value);
+				var morseElem = document.getElementById("morse_area");
+				morseElem.innerHTML = target.value;
+			}
+		</script>
+	</body>
+</html>
