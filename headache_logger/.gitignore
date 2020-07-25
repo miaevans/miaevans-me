@@ -1,0 +1,6 @@
+ # created by virtualenv automatically
+.DS_Store
+*.pyc
+lib
+bin
+.idea

@@ -1,0 +1,15 @@
+<!-- /templates/index.html -->
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        {% if gender == "Male" %}
+            <h3><u>Hello Mr. {{name}}!</u></h3>
+        {% else %}
+            <h3><u>{{name}} is my favorite child!</u></h3>
+        {% endif %}
+    </body>
+</html>
+
+

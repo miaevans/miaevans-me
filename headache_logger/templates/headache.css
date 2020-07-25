@@ -1,0 +1,39 @@
+
+h1 {
+    text-align: center;
+    color:  #53dcc3;
+    font-family: fantasy;
+}
+
+form {
+    margin: 2%;
+}
+
+#last {
+
+}
+
+#streak {
+
+}
+
+div {
+    margin: 2% 0;
+
+}
+
+#log_button {
+    background: #48fdb4;
+    margin: 0 auto;
+    border: #7ccef3 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+    width: 30%;
+    margin-top: 20%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+#message {
+    visibility:hidden
+}

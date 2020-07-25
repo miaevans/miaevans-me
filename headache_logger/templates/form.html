@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <style>
+body {
+    background-color: #c4e0ff;
+}
+h1 {
+    text-align: center;
+    color:  #2981f1;
+    font-family: fantasy;
+}
+
+form {
+    margin: 2%;
+}
+
+.center_horiz {
+    text-align: center;
+}
+
+.rounded_button {
+    background-color: #2a4fd6;
+    border: none;
+    color: aliceblue;
+    padding: 50px;
+    font-size: 30px;
+    border-radius: 50%;
+    margin: 10px 20px;
+}
+
+#log_button {
+    background: #7ccef3;
+    margin: 0 auto;
+    border: #48fdb4 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+#message {
+    visibility:hidden;
+}
+
+#chart {
+    width: 800px;
+    margin-left: calc(50% - 400px)
+}
+
+    </style>
+</head>
+
+<body>
+<h1>Welcome to your headache medication logger</h1>
+ <div class="center_horiz">
+        <button class="rounded_button">Current Streak: <br>{{last}} days ago.</button>
+        <button class="rounded_button">Best streak: <br>{{longest}} days.</button>
+    </div>
+<form action="/form-handler" method="POST">
+    <div class="center_horiz">
+        <input id="log_button" type="submit" value="Click here to log taking headache medication.">
+    </div>
+    <br>
+    <div class="center_horiz">
+        {{message}}
+    </div>
+
+</form>
+
+<div id="chart">
+<canvas id="myChart"></canvas>
+</div>
+
+    <script>
+        var labels =  {{labels|safe}}
+        var data = {{data|safe}}
+        var ctx = document.getElementById('myChart').getContext('2d');
+        ctx.height = 500;
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Medication days',
+            backgroundColor: 'rgb(0, 100, 255)',
+            borderColor: 'rgb(0, 100, 200)',
+            data: data
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# app.py
+from flask import Flask
+
+app = Flask(__name__) # name for the Flash app (refer to output)
+
+# defining a route
+@app.route("/", methods=['GET', 'POST', 'PUT'])
+def home(): # route handler function
+    # returning a response
+    return "Hello World!"
+
+# running the server
+app.run(debug = True) # to allow for debugging and auto-reload
